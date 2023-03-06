@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<p class="background-color " ><div  class="float-left">Sort by<a href="/sortbylikes"> Likes </a>|<a href="/sortbyhates"> Hates </a>|<a href="/sortbyaddeddate"> Date </a></div><div  th:if="${username=='anonymousUser'}" class="float-right"><a href="/login"> Login </a> <a href="/signup">Signup </a>  </div>  </p>
+	<p><div  th:if="${username!='anonymousUser'}" class="float-right">Welcome back <a href="/login"><span th:text="${username}"></span></a>   </div></p>
+	<div class="left">
+		<table class="center">
+			<tbody>
+				<tr th:if="${movies.empty}">
+					<td colspan="3">No movies Available</td>
+				</tr>
+				<tr th:each="movie,iterStat : ${#lists.sort(movies,comparator)}">
+					<td class="border padding " colspan="2">
+						<div class="left" th:text="${'Title:'+movie.title}"></div>
+						<div class="left" th:text="${'Posted by:'+movie.username}"></div>
+						<div class="left" th:text="${'Description:'+movie.description}"></div>
+						<div class="left"
+							th:text="${'Publicationdate:'+movie.publicationdate}"></div>
+						<div class="left" th:text="${'Addeddate:'+movie.addeddate}"></div>
+						<div class="left" th:if="${movie.username==username}"
+							th:text="${'Likes:'+movie.likes}+' | '+${'Hates:'+movie.hates}"></div>
+						<div class="left">
+							<a
+								th:href="${'/incrementlikes?'+'title='+{movie.title}+'&name='+{movie.username}}"
+								th:if="${movie.username!=username}"
+								th:text="${'Likes:'+movie.likes}"></a> <a
+								th:href="${'/incrementhates?'+'title='+{movie.title}+'&name='+{movie.username}}"
+								th:if="${movie.username!=username}"
+								th:text="${' | Hates:'+movie.hates}"></a>
+						</div>
+					</td>
+					<td><span class="right"> <a
+							th:if="${iterStat.index ==0}" href="/insertion">New movie</a>
+					</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+	background-color: rgb(255, 255, 255);
+}
+
+.center {
+	text-align: center;
+	padding-top: 100 px;
+}
+
+.background-color {
+	background-color: grey;
+}
+
+table.center {
+	padding-left: 600px;
+	padding-right: 600px;
+	width: 100%;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right{
+	float: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+td.border {
+	border: 3px solid black;
+}
+
+td.padding {
+	padding: 50px;
+}

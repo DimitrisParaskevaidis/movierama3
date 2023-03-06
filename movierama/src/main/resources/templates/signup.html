@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="center">
+		<div>
+			<form th:action="@{/signup}" method="POST" class="card-body"
+				modelAttribute="user">
+				<div>
+					<div>
+						<label for="username"></label> <input type="text" name="username"
+							class="form-control" placeholder="username" />
+					</div>
+					<div>
+						<label for="password"></label> <input type="password"
+							name="password" class="form-control" placeholder="password" />
+					</div>
+					<div>
+						<label for="password2"></label> <input type="password"
+							name="password2" class="form-control" placeholder="password2" />
+					</div>
+					<button class="btn btn-primary" type="submit">Signup</button>
+					<a href="/login">Login</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

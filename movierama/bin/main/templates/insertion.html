@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script src="validation.js"></script>
+</head>
+<body>
+	<div class="center">
+		<div class="container">
+			<div >
+				<form name="insertionForm" th:action="@{/insertion}" method="POST"
+					class="card-body">
+					<div class="center">
+						<label for="title">Τίτλος ταινίας</label>
+						<div>
+							<input type="text" name="title" /> </br>
+						</div>
+						<label for="description">Περιγραφή</label>
+						<div>
+							<input type="text" name="description" /></br>
+						</div>
+						<label for="publicationdate">Ημερομηνία κυκλοφορίας</label>
+						<div>
+							<input type="text" name="publicationdate" /></br>
+						</div>
+						<button type="submit" onclick="validateForm()">Save</button>
+						<a href="/movies">Movies</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
